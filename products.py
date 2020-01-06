@@ -19,3 +19,7 @@ print(products)
 
 #products[0][0]   
 #索引 第0個清單內的清單第0個選項
+
+
+for p in products:
+	print(p[0], '的價格是', p[1])
