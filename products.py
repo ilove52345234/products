@@ -1,14 +1,20 @@
+import os # operating system
+products = []
+if os.path.isfile('products.csv'):
+	print('找到檔案, 開始讀取')
+	with open('products.csv', 'r', encoding = 'utf-8') as f:
+		for line in f:
+			if '商品, 價格' in line:
+				continue ##從這跳到下個迴圈 這迴圈後面不執行
+			name, price = line.strip().split(',')
+			products.append([name, price])
+		print(products)
+else:
+	print('未找到檔案, 將重新生成')
 #Produts 建立記帳小程式
 #二維清單
 #讀取檔案
-products = []
-with open('products.csv', 'r', encoding = 'utf-8') as f:
-	for line in f:
-		if '商品, 價格' in line:
-			continue ##從這跳到下個迴圈 這迴圈後面不執行
-		name, price = line.strip().split(',')
-		products.append([name, price])
-	print(products)
+
 ##讓使用者輸入
 while True:
     name = input('請輸入商品名稱: ' )
